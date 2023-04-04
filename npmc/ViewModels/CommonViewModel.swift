@@ -17,7 +17,7 @@ class CommonViewModel: ObservableObject {
     
     let auth = Auth.auth()
     
-    @Published var taskCompleted = false
+//    @Published var taskCompleted = false
     
     @Published var userSession: FirebaseAuth.User?
     
@@ -88,11 +88,11 @@ class CommonViewModel: ObservableObject {
             let authDataResult = try await auth.signIn(withEmail: email, password: password)
             userSession = authDataResult.user
             print("Debug: User signed in successfully")
-            self.clientSubscribe()
-            self.causeSubscribe()
+//            self.clientSubscribe()
+//            self.causeSubscribe()
 //            self.noteSubscribe()
 //            self.appearanceSubscribe()
-            self.representationSubscribe()
+//            self.representationSubscribe()
             return true
         } catch {
             print("Debug: Failed to sign in user with error \(error.localizedDescription)")
@@ -153,7 +153,36 @@ class CommonViewModel: ObservableObject {
         }
     }
     
-    
+    func clientRefresh() {
+        db.collection("clients").whereField("internalID", isGreaterThan: 0).getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    self.clients = []
+                    for document in querySnapshot!.documents {
+                        let internalID = document.data()["internalID"] as? Int ?? 0
+                        let lastname = document.data()["LastName"] as? String ?? ""
+                        let firstName = document.data()["FirstName"] as? String ?? ""
+                        let middleName = document.data()["MiddleName"] as? String ?? ""
+                        let suffix = document.data()["Suffix"] as? String ?? ""
+                        let street = document.data()["Street"] as? String ?? ""
+                        let city = document.data()["City"] as? String ?? ""
+                        let state = document.data()["State"] as? String ?? ""
+                        let zip = document.data()["Zip"] as? String ?? ""
+                        let area = document.data()["AreaCode"] as? String ?? ""
+                        let exchange = document.data()["Exchange"] as? String ?? ""
+                        let number = document.data()["TelNumber"] as? String ?? ""
+                        let note = document.data()["Note"] as? String ?? ""
+                        let jail = document.data()["Jail"] as? String ?? ""
+                        let representation = document.data()["Representation"] as? [Int] ?? []
+                        let cl:ClientModel = ClientModel(fsid: document.documentID, intid:internalID, lastname:lastname, firstname: firstName, middlename: middleName, suffix: suffix, street: street, city: city, state: state, zip: zip, phone: FormattingService.fmtphone(area: area, exchange: exchange, number: number), note: note, jail: jail, representation: representation)
+                        self.clients.append(cl)
+//                        print("\(document.documentID) => \(document.data())")
+                    }
+                }
+        }
+    }
+
     func nextClientID() -> Int {
         // find client with greatest internal id
         let greatestclient = clients.max {a, b in a.internalID < b.internalID }
@@ -196,7 +225,7 @@ class CommonViewModel: ObservableObject {
 
         let reprRef = db.collection("clients")
         
-        taskCompleted = false
+//        taskCompleted = false
         
         do {
             try await reprRef.document().setData(uc)
@@ -266,6 +295,114 @@ class CommonViewModel: ObservableObject {
         }
     }
     
+    func causeRefresh() {
+        db.collection("causes").whereField("internalID", isGreaterThan: 0)
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    self.causes = []
+                    for document in querySnapshot!.documents {
+                        let internalID = document.data()["internalID"] as? Int ?? 0
+                        let causeNo = document.data()["CauseNo"] as? String ?? ""
+                        let involvedClient = document.data()["InvolvedClient"] as? Int ?? 0
+                        let representations = document.data()["Representations"] as? [Int] ?? []
+                        let level = document.data()["Level"] as? String ?? ""
+                        let court = document.data()["Court"] as? String ?? ""
+                        let originalcharge = document.data()["OriginalCharge"] as? String ?? ""
+                        let causeType = document.data()["CauseType"] as? String ?? ""
+                        let ca:CauseModel = CauseModel(fsid: document.documentID, client: involvedClient, causeno: causeNo, representations: representations, involvedClient: involvedClient, level: level, court: court, originalcharge: originalcharge, causetype: causeType, intid: internalID)
+                        
+                        self.causes.append(ca)
+//                        print("\(document.documentID) => \(document.data())")
+                    }
+                }
+        }
+    }
+    
+    public static func causeAny(client:Int, causeno:String, representations:[Int], level:String, court: String, originalcharge: String, causetype: String, intid:Int) -> [String:Any] {
+        let newCause:[String:Any] =   ["internalID":intid,
+                                       "CauseNo":causeno,
+                                       "InvolvedClient":client,
+                                       "Representations":representations,
+                                       "Level":level,
+                                       "Court":court,
+                                       "OriginalCharge":originalcharge,
+                                       "CauseType":causetype
+        ]
+        return newCause
+    }
+
+    public func nextCauseID() -> Int {
+        // find cause with greatest internal id
+        let greatestcause = causes.max {a, b in a.internalID < b.internalID }
+        // find value of greatest internal id
+        if greatestcause != nil {
+            let gc = greatestcause!
+            let i:Int = Int(gc.internalID)
+            return i + 1
+        } else {
+            return 1
+        }
+    }
+
+    @MainActor
+    func addCause(client:Int, causeno:String, representations:[Int], level:String, court: String, originalcharge: String, causetype: String) async -> FunctionReturn {
+        
+        var rtn:FunctionReturn = FunctionReturn(status: .empty, message: "", additional: 0)
+
+        let intID = nextCauseID()
+        let uc:[String:Any] = CommonViewModel.causeAny(client:client, causeno:causeno, representations:representations, level:level, court:court, originalcharge:originalcharge, causetype:causetype, intid:intID)
+        //   let db = Firestore.firestore()
+        let reprRef = db.collection("causes")
+        
+        do {
+            try await reprRef.document().setData(uc)
+            rtn.status = .successful
+            rtn.message = ""
+            return rtn
+        }
+        catch {
+            rtn.status = .IOError
+            rtn.message = "Add Cause failed: " + error.localizedDescription
+            return rtn
+        }
+    }
+
+    @MainActor
+    func updateCause(causeID:String, client:Int, causeno:String, representations:[Int], level:String, court: String, originalcharge: String, causetype: String, intid:Int) async -> FunctionReturn {
+        let causeData:[String:Any] = CommonViewModel.causeAny(client:client, causeno:causeno, representations:representations, level:level, court:court, originalcharge:originalcharge, causetype:causetype, intid:intid)
+        
+        var rtn:FunctionReturn = FunctionReturn(status: .empty, message: "", additional: 0)
+
+        do {
+            try await db.collection("causes").document(causeID).updateData(causeData)
+            rtn.status = .successful
+            rtn.message = ""
+            return rtn
+        } catch {
+            rtn.status = .IOError
+            rtn.message = "Update Cause failed: " + error.localizedDescription
+            return rtn
+         }
+    }
+    
+    @MainActor
+    func updateCause(causeID:String, updates:[String:Any]) async -> FunctionReturn {
+        var rtn:FunctionReturn = FunctionReturn(status: .empty, message: "", additional: 0)
+
+        do {
+            try await db.collection("causes").document(causeID).updateData(updates)
+            rtn.status = .successful
+            rtn.message = ""
+            return rtn
+        } catch {
+            rtn.status = .IOError
+            rtn.message = "Update Cause failed: " + error.localizedDescription
+            return rtn
+         }
+    }
+
     // MARK: Representation Functions
 
     func representationSubscribe() {

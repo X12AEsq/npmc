@@ -38,6 +38,13 @@
 		312EC54329DBC371004356F6 /* StateCodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312EC53B29DBC371004356F6 /* StateCodeModel.swift */; };
 		312EC54429DBC371004356F6 /* DispositionTypeOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312EC53C29DBC371004356F6 /* DispositionTypeOptions.swift */; };
 		312EC54729DBC758004356F6 /* SelectClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312EC54629DBC758004356F6 /* SelectClient.swift */; };
+		3147C82029DCCB4F005B56F7 /* SelectCause.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3147C81F29DCCB4F005B56F7 /* SelectCause.swift */; };
+		3147C82229DCCC8D005B56F7 /* CauseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3147C82129DCCC8D005B56F7 /* CauseExtension.swift */; };
+		3147C82429DCDCEA005B56F7 /* EditCause.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3147C82329DCDCEA005B56F7 /* EditCause.swift */; };
+		3147C82929DCED04005B56F7 /* DeviceRotationViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3147C82529DCED04005B56F7 /* DeviceRotationViewModifier.swift */; };
+		3147C82A29DCED04005B56F7 /* ActionSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3147C82629DCED04005B56F7 /* ActionSelect.swift */; };
+		3147C82B29DCED04005B56F7 /* GrowingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3147C82729DCED04005B56F7 /* GrowingButton.swift */; };
+		3147C82C29DCED04005B56F7 /* ActionEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3147C82829DCED04005B56F7 /* ActionEdit.swift */; };
 		31CAF87E29DCAF6B000CB256 /* EditClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CAF87D29DCAF6B000CB256 /* EditClient.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +76,13 @@
 		312EC53B29DBC371004356F6 /* StateCodeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateCodeModel.swift; sourceTree = "<group>"; };
 		312EC53C29DBC371004356F6 /* DispositionTypeOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispositionTypeOptions.swift; sourceTree = "<group>"; };
 		312EC54629DBC758004356F6 /* SelectClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectClient.swift; sourceTree = "<group>"; };
+		3147C81F29DCCB4F005B56F7 /* SelectCause.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCause.swift; sourceTree = "<group>"; };
+		3147C82129DCCC8D005B56F7 /* CauseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CauseExtension.swift; sourceTree = "<group>"; };
+		3147C82329DCDCEA005B56F7 /* EditCause.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCause.swift; sourceTree = "<group>"; };
+		3147C82529DCED04005B56F7 /* DeviceRotationViewModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceRotationViewModifier.swift; sourceTree = "<group>"; };
+		3147C82629DCED04005B56F7 /* ActionSelect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSelect.swift; sourceTree = "<group>"; };
+		3147C82729DCED04005B56F7 /* GrowingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrowingButton.swift; sourceTree = "<group>"; };
+		3147C82829DCED04005B56F7 /* ActionEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionEdit.swift; sourceTree = "<group>"; };
 		31CAF87D29DCAF6B000CB256 /* EditClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,7 +179,12 @@
 		312EC52A29DBB9A1004356F6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				3147C82829DCED04005B56F7 /* ActionEdit.swift */,
+				3147C82629DCED04005B56F7 /* ActionSelect.swift */,
+				3147C82529DCED04005B56F7 /* DeviceRotationViewModifier.swift */,
+				3147C82729DCED04005B56F7 /* GrowingButton.swift */,
 				312EC52B29DBB9B7004356F6 /* ClientExtension.swift */,
+				3147C82129DCCC8D005B56F7 /* CauseExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -198,6 +217,8 @@
 			children = (
 				312EC54629DBC758004356F6 /* SelectClient.swift */,
 				31CAF87D29DCAF6B000CB256 /* EditClient.swift */,
+				3147C81F29DCCB4F005B56F7 /* SelectCause.swift */,
+				3147C82329DCDCEA005B56F7 /* EditCause.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -283,6 +304,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3147C82A29DCED04005B56F7 /* ActionSelect.swift in Sources */,
+				3147C82429DCDCEA005B56F7 /* EditCause.swift in Sources */,
 				312EC54029DBC371004356F6 /* PrimaryCategory.swift in Sources */,
 				312EC54129DBC371004356F6 /* AvailableCourts.swift in Sources */,
 				312EC4FF29DBB26F004356F6 /* ContentView.swift in Sources */,
@@ -290,9 +313,11 @@
 				312EC54329DBC371004356F6 /* StateCodeModel.swift in Sources */,
 				312EC51F29DBB431004356F6 /* MainInterfaceView.swift in Sources */,
 				312EC54229DBC371004356F6 /* DispositionActionOptions.swift in Sources */,
+				3147C82029DCCB4F005B56F7 /* SelectCause.swift in Sources */,
 				312EC52F29DBB9DD004356F6 /* FormattingService.swift in Sources */,
 				312EC52929DBB895004356F6 /* ClientModel.swift in Sources */,
 				312EC53329DBBE8A004356F6 /* RepresentationModel.swift in Sources */,
+				3147C82229DCCC8D005B56F7 /* CauseExtension.swift in Sources */,
 				312EC4FD29DBB26E004356F6 /* npmcApp.swift in Sources */,
 				312EC53D29DBC371004356F6 /* FunctionReturn.swift in Sources */,
 				312EC53129DBBBDB004356F6 /* CauseModel.swift in Sources */,
@@ -301,12 +326,15 @@
 				312EC52029DBB431004356F6 /* RegistrationView.swift in Sources */,
 				31CAF87E29DCAF6B000CB256 /* EditClient.swift in Sources */,
 				312EC52C29DBB9B7004356F6 /* ClientExtension.swift in Sources */,
+				3147C82C29DCED04005B56F7 /* ActionEdit.swift in Sources */,
 				312EC52129DBB431004356F6 /* CustomButton.swift in Sources */,
+				3147C82929DCED04005B56F7 /* DeviceRotationViewModifier.swift in Sources */,
 				312EC53E29DBC371004356F6 /* OffenseLevel.swift in Sources */,
 				312EC52729DBB7A4004356F6 /* WorkingModel.swift in Sources */,
 				312EC52429DBB46F004356F6 /* CommonViewModel.swift in Sources */,
 				312EC51E29DBB431004356F6 /* LoginView.swift in Sources */,
 				312EC51D29DBB431004356F6 /* CustomTextField.swift in Sources */,
+				3147C82B29DCED04005B56F7 /* GrowingButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

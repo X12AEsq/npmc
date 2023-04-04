@@ -12,7 +12,7 @@ import FirebaseFirestoreSwift
 
 @available(iOS 15.0, *)
 struct SelectClient: View {
-    var selectOnly:Bool
+    var option:Int
     @State var selectedClient = ClientModel()
     
     @State private var sortOption = 1
@@ -58,13 +58,15 @@ struct SelectClient: View {
             ScrollView {
                 VStack (alignment: .leading) {
                     HStack {
-//                        NavigationLink(destination: { EditClientView() }, label: { Text("Add New Client") })
+                        NavigationLink(destination: { if option == 1 { EditClient(client: ClientModel()) }
+                            else { Text("Something else") }
+                        }, label: { Text("Add New Client") })
                         Spacer()
                     }
                     ForEach(sortedClients) { client in
                         HStack {
-                            NavigationLink(sortOption == 1 ? client.formattedName : client.sortFormat2) {
-                                EditClient(client: client)
+                            NavigationLink(sortOption == 1 ? client.formattedName : client.sortFormat2) { if option == 1 { EditClient(client: client) }
+                                else { Text("Something else") }
                             }
                             Spacer()
                         }

@@ -174,9 +174,8 @@ struct EditClient: View {
     }
 }
 
-
-struct EditClient_Previews: PreviewProvider {
-    static var previews: some View {
-        EditClient()
-    }
-}
+//struct EditClient_Previews: PreviewProvider {
+//    static var previews: some View {
+//        EditClient()
+//    }
+//}

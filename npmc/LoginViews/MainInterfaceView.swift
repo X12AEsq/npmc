@@ -24,39 +24,39 @@ struct MainInterfaceView: View {
 //    @FirestoreQuery(collectionPath: "vehicles", predicates: []) var vehicles: [Vehicle]
 
     var body: some View {
-//        ZStack {
-//            Image("background")
-//                .resizable()
-//                .ignoresSafeArea()
-//                .opacity(0.5)
+        ZStack {
+            Image("background")
+                .resizable()
+                .ignoresSafeArea()
+                .opacity(0.5)
             VStack {
                 Button {
                     _ = CVModel.signout()
                 } label: {
                     Text("sign out")
                         .padding(10)
-                        .foregroundColor(.white)
-                        .background(.white.opacity(0.3))
+//                        .foregroundColor(.white)
+//                        .background(.white.opacity(0.3))
                         .clipShape(Capsule())
                 }
                 Text(CVModel.appStatus)
                 NavigationStack {
                     VStack(alignment: .leading) {
                         NavigationLink("Clients") {
-                            SelectClient(selectOnly: false)
+                            SelectClient(option: 1)
                         }
                         .font(.title)
                         .padding(.bottom, 10.0)
-//                        NavigationLink("Causes") {
-//                            SelectCauseView()
-//                        }
-//                        .font(.title)
-//                        .padding(.bottom, 10.0)
+                        NavigationLink("Causes") {
+                            SelectCause(option: 1)
+                        }
+                        .font(.title)
+                        .padding(.bottom, 10.0)
 //                        NavigationLink("Representations") {
-//                            SelectRepresentationView()
+//                            SelectRepresentation()
 //                        }
 //                        .font(.title)
-//                        Spacer()
+                        Spacer()
                     }
                     .padding(.bottom, 10.0)
                     
@@ -69,7 +69,19 @@ struct MainInterfaceView: View {
                 }
                 
                 Spacer()
-//            }
+                Button {
+                    CVModel.clientSubscribe()
+                    CVModel.clientRefresh()
+                    CVModel.causeSubscribe()
+                    CVModel.causeRefresh()
+                } label: {
+                    Text("refresh")
+                        .padding(10)
+//                        .foregroundColor(.white)
+//                        .background(.white.opacity(0.3))
+                        .clipShape(Capsule())
+                }
+            }
         }
     }
 }
