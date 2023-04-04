@@ -29,6 +29,16 @@
 		312EC52F29DBB9DD004356F6 /* FormattingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312EC52E29DBB9DD004356F6 /* FormattingService.swift */; };
 		312EC53129DBBBDB004356F6 /* CauseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312EC53029DBBBDB004356F6 /* CauseModel.swift */; };
 		312EC53329DBBE8A004356F6 /* RepresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312EC53229DBBE8A004356F6 /* RepresentationModel.swift */; };
+		312EC53D29DBC371004356F6 /* FunctionReturn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312EC53529DBC371004356F6 /* FunctionReturn.swift */; };
+		312EC53E29DBC371004356F6 /* OffenseLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312EC53629DBC371004356F6 /* OffenseLevel.swift */; };
+		312EC53F29DBC371004356F6 /* YesNoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312EC53729DBC371004356F6 /* YesNoModel.swift */; };
+		312EC54029DBC371004356F6 /* PrimaryCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312EC53829DBC371004356F6 /* PrimaryCategory.swift */; };
+		312EC54129DBC371004356F6 /* AvailableCourts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312EC53929DBC371004356F6 /* AvailableCourts.swift */; };
+		312EC54229DBC371004356F6 /* DispositionActionOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312EC53A29DBC371004356F6 /* DispositionActionOptions.swift */; };
+		312EC54329DBC371004356F6 /* StateCodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312EC53B29DBC371004356F6 /* StateCodeModel.swift */; };
+		312EC54429DBC371004356F6 /* DispositionTypeOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312EC53C29DBC371004356F6 /* DispositionTypeOptions.swift */; };
+		312EC54729DBC758004356F6 /* SelectClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312EC54629DBC758004356F6 /* SelectClient.swift */; };
+		31CAF87E29DCAF6B000CB256 /* EditClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CAF87D29DCAF6B000CB256 /* EditClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +60,16 @@
 		312EC52E29DBB9DD004356F6 /* FormattingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormattingService.swift; sourceTree = "<group>"; };
 		312EC53029DBBBDB004356F6 /* CauseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CauseModel.swift; sourceTree = "<group>"; };
 		312EC53229DBBE8A004356F6 /* RepresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepresentationModel.swift; sourceTree = "<group>"; };
+		312EC53529DBC371004356F6 /* FunctionReturn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionReturn.swift; sourceTree = "<group>"; };
+		312EC53629DBC371004356F6 /* OffenseLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffenseLevel.swift; sourceTree = "<group>"; };
+		312EC53729DBC371004356F6 /* YesNoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YesNoModel.swift; sourceTree = "<group>"; };
+		312EC53829DBC371004356F6 /* PrimaryCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryCategory.swift; sourceTree = "<group>"; };
+		312EC53929DBC371004356F6 /* AvailableCourts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailableCourts.swift; sourceTree = "<group>"; };
+		312EC53A29DBC371004356F6 /* DispositionActionOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispositionActionOptions.swift; sourceTree = "<group>"; };
+		312EC53B29DBC371004356F6 /* StateCodeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateCodeModel.swift; sourceTree = "<group>"; };
+		312EC53C29DBC371004356F6 /* DispositionTypeOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispositionTypeOptions.swift; sourceTree = "<group>"; };
+		312EC54629DBC758004356F6 /* SelectClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectClient.swift; sourceTree = "<group>"; };
+		31CAF87D29DCAF6B000CB256 /* EditClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +107,8 @@
 		312EC4FB29DBB26E004356F6 /* npmc */ = {
 			isa = PBXGroup;
 			children = (
+				312EC54529DBC73D004356F6 /* Views */,
+				312EC53429DBC35B004356F6 /* Enumerations */,
 				312EC52D29DBB9CC004356F6 /* Services */,
 				312EC52A29DBB9A1004356F6 /* Extensions */,
 				312EC52529DBB787004356F6 /* Models */,
@@ -154,6 +176,30 @@
 				312EC52E29DBB9DD004356F6 /* FormattingService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		312EC53429DBC35B004356F6 /* Enumerations */ = {
+			isa = PBXGroup;
+			children = (
+				312EC53929DBC371004356F6 /* AvailableCourts.swift */,
+				312EC53A29DBC371004356F6 /* DispositionActionOptions.swift */,
+				312EC53C29DBC371004356F6 /* DispositionTypeOptions.swift */,
+				312EC53529DBC371004356F6 /* FunctionReturn.swift */,
+				312EC53629DBC371004356F6 /* OffenseLevel.swift */,
+				312EC53829DBC371004356F6 /* PrimaryCategory.swift */,
+				312EC53B29DBC371004356F6 /* StateCodeModel.swift */,
+				312EC53729DBC371004356F6 /* YesNoModel.swift */,
+			);
+			path = Enumerations;
+			sourceTree = "<group>";
+		};
+		312EC54529DBC73D004356F6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				312EC54629DBC758004356F6 /* SelectClient.swift */,
+				31CAF87D29DCAF6B000CB256 /* EditClient.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,16 +283,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				312EC54029DBC371004356F6 /* PrimaryCategory.swift in Sources */,
+				312EC54129DBC371004356F6 /* AvailableCourts.swift in Sources */,
 				312EC4FF29DBB26F004356F6 /* ContentView.swift in Sources */,
+				312EC54729DBC758004356F6 /* SelectClient.swift in Sources */,
+				312EC54329DBC371004356F6 /* StateCodeModel.swift in Sources */,
 				312EC51F29DBB431004356F6 /* MainInterfaceView.swift in Sources */,
+				312EC54229DBC371004356F6 /* DispositionActionOptions.swift in Sources */,
 				312EC52F29DBB9DD004356F6 /* FormattingService.swift in Sources */,
 				312EC52929DBB895004356F6 /* ClientModel.swift in Sources */,
 				312EC53329DBBE8A004356F6 /* RepresentationModel.swift in Sources */,
 				312EC4FD29DBB26E004356F6 /* npmcApp.swift in Sources */,
+				312EC53D29DBC371004356F6 /* FunctionReturn.swift in Sources */,
 				312EC53129DBBBDB004356F6 /* CauseModel.swift in Sources */,
+				312EC54429DBC371004356F6 /* DispositionTypeOptions.swift in Sources */,
+				312EC53F29DBC371004356F6 /* YesNoModel.swift in Sources */,
 				312EC52029DBB431004356F6 /* RegistrationView.swift in Sources */,
+				31CAF87E29DCAF6B000CB256 /* EditClient.swift in Sources */,
 				312EC52C29DBB9B7004356F6 /* ClientExtension.swift in Sources */,
 				312EC52129DBB431004356F6 /* CustomButton.swift in Sources */,
+				312EC53E29DBC371004356F6 /* OffenseLevel.swift in Sources */,
 				312EC52729DBB7A4004356F6 /* WorkingModel.swift in Sources */,
 				312EC52429DBB46F004356F6 /* CommonViewModel.swift in Sources */,
 				312EC51E29DBB431004356F6 /* LoginView.swift in Sources */,

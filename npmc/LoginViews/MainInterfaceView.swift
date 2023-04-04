@@ -40,13 +40,13 @@ struct MainInterfaceView: View {
                         .clipShape(Capsule())
                 }
                 Text(CVModel.appStatus)
-//                NavigationStack {
-//                    VStack(alignment: .leading) {
-//                        NavigationLink("Clients") {
-//                            SelectClientView(selectOnly: false)
-//                        }
-//                        .font(.title)
-//                        .padding(.bottom, 10.0)
+                NavigationStack {
+                    VStack(alignment: .leading) {
+                        NavigationLink("Clients") {
+                            SelectClient(selectOnly: false)
+                        }
+                        .font(.title)
+                        .padding(.bottom, 10.0)
 //                        NavigationLink("Causes") {
 //                            SelectCauseView()
 //                        }
@@ -57,16 +57,16 @@ struct MainInterfaceView: View {
 //                        }
 //                        .font(.title)
 //                        Spacer()
-//                    }
-//                    .padding(.bottom, 10.0)
-//                    
-//                    Spacer()
-//                    Text("SelectionOptions")
-//                        .font(.largeTitle)
-//                        .foregroundColor(.primary)
-//
-//                        .navigationTitle("Albers Law Practice")
-//                }
+                    }
+                    .padding(.bottom, 10.0)
+                    
+                    Spacer()
+                    Text("SelectionOptions")
+                        .font(.largeTitle)
+                        .foregroundColor(.primary)
+
+                        .navigationTitle("Albers Law Practice")
+                }
                 
                 Spacer()
 //            }
