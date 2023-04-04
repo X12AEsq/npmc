@@ -6,12 +6,20 @@
 //
 
 import SwiftUI
+import FirebaseCore
 
 @main
 struct npmcApp: App {
+    @StateObject var CVModel = CommonViewModel()
+    
+    init() {
+        FirebaseApp.configure()
+
+    }
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(CVModel)
         }
     }
 }
